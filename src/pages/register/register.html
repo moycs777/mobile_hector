@@ -1,0 +1,32 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Registro</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+      <ion-item>
+          <ion-label floating>Código de Referidos</ion-label>
+          <ion-input formControlName="reffer_id" type="text"></ion-input>
+      </ion-item>
+    <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Confirmar Password</ion-label>
+      <ion-input formControlName="c_password" type="password"></ion-input>
+    </ion-item>
+    <button ion-button full color="primary" [disabled]="!authForm.valid" style="margin-top: 20px;" type="submit">Registrar</button>
+  </form>
+</ion-content>

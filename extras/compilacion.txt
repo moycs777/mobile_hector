@@ -1,0 +1,15 @@
+ionic cordova build android --prod --release
+
+cd platforms/android/app/build/outputs/apk/release
+
+
+cuando quero montar nuevamente la plataforma
+
+ionic cordova platform add android@6.1.0 --save
+
+
+keytool -genkey -v -keystore manuel.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore  manuel.keystore app-release-unsigned.apk alias_name
+../../../../../../../zipalign -v 4 app-release-unsigned.apk manuel.apk
+
+

@@ -1,0 +1,26 @@
+       $message = 'un mensaje ';
+       $user_id = 'id del usuario'; /* este es el token*/
+       $content = array(
+            "en" => "$message"
+        );
+        $fields = array(
+          'app_id' => "0534de58-0352-4d65-bc46-3ee22894b488", /*el id del proyecto onesignal*/
+          'include_player_ids' => array($user_id),
+         /* 'send_after'=>"2018-01-20 21:16:00 GMT-0400",*/  /*aqui envia la hora que quieres que envie el mensaje al conductor*/
+          'data' => array("foo" => "bar"),
+          'contents' => $content
+    );
+        $fields = json_encode($fields);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charset=utf-8',
+            'Authorization: Basic NzE1YzEwMDUtOTY1OS00NDMwLTk1MDYtOTE0ZjFlNDIxMmQ4')); // este es el restapikey de onesignal de tu proyecto 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        $response = curl_exec($ch);
+        echo $response;
+        curl_close($ch);
+       return $response;

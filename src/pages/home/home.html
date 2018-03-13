@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-navbar style="background:rgba(255, 255, 255, 0.7)">
+        <ion-title>
+            <div class="center">
+                <img style="height:80px" src="assets/imgs/ayg_color.png">
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2 style="color:#0E6D78;font-weight:bold;">Bienvenido a AyG</h2>
+    <form (submit)="doLogin()">
+        <ion-item>
+            <ion-label stacked style="color:#0E6D78;font-weight:bold;">Email</ion-label>
+            <ion-input required minlength="8" [(ngModel)]="loginData.email" name="email" type="email" placeholder="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked style="color:#0E6D78;font-weight:bold;">Password</ion-label>
+            <ion-input required minlength="8" [(ngModel)]="loginData.password" name="password" type="password" placeholder="Password"></ion-input>
+        </ion-item>
+        <button ion-button style="background:#6ED6E3;border-radius:0px;" block type="submit">
+      Acceder
+    </button>
+
+</form>
+        <div class="botonfb">
+            <button style="background:#4267B2;" text-center ion-button icon-right (click)="loginFB()">
+              Accede con
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+            <button text-center style="background:#1DA1F2" ion-button icon-right (click)="loginTW()">
+               Accede con
+              <ion-icon name="logo-twitter"></ion-icon>
+             </button>
+            <button ion-button block clear (click)="register()">
+              Si no tienes cuenta registrate!
+            </button>
+        </div>
+    <div *ngIf="!isLoggedIn;">
+    </div>
+    <div *ngIf="isLoggedIn;">
+        <h2>Hi, {{user.name}} ({{user.email}})</h2>
+        <p>Gender: {{user.gender}} </p>
+        <p>imagen cc <img src="{{user.picture.data.url}}" width="100" alt="{{user.name}}" /></p>
+        <p>id {{ user.id}}</p>
+
+        <button style="background:#4267B2;" text-center ion-button icon-right (click)="logoutFB()">
+          Cerrar sesion fb
+          <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+
+        <button style="background:#4267B2;" text-center ion-button icon-right (click)="apiSocialLogin()">
+          probar login social
+          <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+    </div>
+</ion-content>

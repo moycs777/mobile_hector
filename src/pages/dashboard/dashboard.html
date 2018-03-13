@@ -1,0 +1,29 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar color="backgroundazulheader">
+            <ion-title text-center>Ahorro & Gano</ion-title>
+            <div class text-center>
+            <img *ngIf="user" src="https://ahorroygano.com/{{user.picture}}" style="text-align:center;height:50px;width:50px;" />
+              </div>
+            <ion-card *ngIf="user" color="backgroundazulheader" text-center class="hide-card">
+                <h2>Nombre: {{ user.name }} </h2>
+                <!-- FALTA UNA DESCRIPCIÒN DE USUARIO -->
+                <p>Correo: {{ user.email }}</p>
+                <p>Puntos: {{ user.points }}</p>
+                <p>Mi codigo ed referido: {{ user.id }}</p>
+                <hr>
+            </ion-card>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-list>
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+            <ion-icon [name]="p.icon" item-left></ion-icon>
+          {{p.title}}
+        </button>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+<ion-nav color="backgroundazulheader" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

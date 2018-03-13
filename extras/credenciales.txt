@@ -1,0 +1,23 @@
+Cuenta email:
+
+moisesciudadbolivar@gmail.com
+moi12345678
+
+
+Firebase:
+
+Servekey:
+
+AAAAVpYGbBo:APA91bFUgqIhtCSGSbS17WSHsPaPjMNTqAsJotXm4NUwFBJoSUBVbBuAjSuv8ZGhldvyYBYlA6DTYKcuv9n6U6MKSj4NY9t1zW4oJRN9tcE022EkGzAsL4-5oGvgVzb2oi8OuX_vC2SR
+
+Google Project number (Sender ID):
+
+371884190746
+
+App Id Onesignal:
+
+c351fa8a-76e4-428b-b6dd-110718c746ca
+
+Rest Api Key onesignal:
+
+NTE1MzBiMTEtYWUxYS00NDUwLTlkNDUtOTJhMDA5YTdjYWE1

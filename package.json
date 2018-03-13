@@ -1,0 +1,84 @@
+{
+  "name": "nueva",
+  "version": "0.0.1",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
+  "scripts": {
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint",
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve"
+  },
+  "dependencies": {
+    "@angular/common": "5.0.3",
+    "@angular/compiler": "5.0.3",
+    "@angular/compiler-cli": "5.0.3",
+    "@angular/core": "5.0.3",
+    "@angular/forms": "5.0.3",
+    "@angular/http": "5.0.3",
+    "@angular/platform-browser": "5.0.3",
+    "@angular/platform-browser-dynamic": "5.0.3",
+    "@ionic-native/camera": "^4.5.2",
+    "@ionic-native/core": "4.4.0",
+    "@ionic-native/facebook": "^4.5.2",
+    "@ionic-native/file": "^4.5.2",
+    "@ionic-native/file-path": "^4.5.2",
+    "@ionic-native/file-transfer": "^4.5.2",
+    "@ionic-native/onesignal": "^4.5.3",
+    "@ionic-native/splash-screen": "4.4.0",
+    "@ionic-native/status-bar": "4.4.0",
+    "@ionic-native/transfer": "^3.14.0",
+    "@ionic-native/twitter-connect": "^4.5.3",
+    "@ionic/storage": "2.1.3",
+    "cordova-plugin-camera": "^2.4.1",
+    "cordova-plugin-compat": "^1.2.0",
+    "cordova-plugin-device": "^1.1.7",
+    "cordova-plugin-facebook4": "^1.9.1",
+    "cordova-plugin-file": "^4.3.3",
+    "cordova-plugin-file-transfer": "^1.7.0",
+    "cordova-plugin-ionic-webview": "^1.1.16",
+    "cordova-plugin-splashscreen": "^4.1.0",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "ionic-angular": "3.9.2",
+    "ionic-plugin-keyboard": "^2.2.1",
+    "ionicons": "3.0.0",
+    "onesignal-cordova-plugin": "^2.3.1",
+    "rxjs": "5.5.2",
+    "sw-toolbox": "3.6.0",
+    "twitter-connect-plugin": "git+https://github.com/chroa/twitter-connect-plugin.git",
+    "ws": "^3.3.2",
+    "zone.js": "0.8.18",
+    "cordova-android": "6.3.0"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "3.1.5",
+    "typescript": "2.4.2"
+  },
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-device": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-whitelist": {},
+      "ionic-plugin-keyboard": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "1507531595946408",
+        "APP_NAME": "myApplication"
+      },
+      "twitter-connect-plugin": {
+        "FABRIC_KEY": "f69d06ba65e0d734d2ce28021f6eef4185827e51",
+        "TWITTER_KEY": "QpHrTvuOf8Ucgct1kkLYURjAo",
+        "TWITTER_SECRET": "c3U0CBBgoRS5K376pyofeaktNNt4bA7jHHqeDTUr0F9mNj3Qcx"
+      },
+      "cordova-plugin-camera": {},
+      "cordova-plugin-file": {},
+      "onesignal-cordova-plugin": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+page-concursos {
+    .center {
+        text-align: center;
+        margin: 0 auto;
+    }
+    ion-content {
+        background: url('assets/imgs/ayg_blanco.png')
+    }
+    .th-nombre{
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .tr-antiguo{
+      color:#0E6D78;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .tr-head{
+      font-size:20px;
+      background:#0E6D78;
+      color:#F9B247;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .td-main{
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+}

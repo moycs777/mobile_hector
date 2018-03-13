@@ -1,0 +1,99 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Mis cupones</ion-title>
+        <button ion-button menuToggle>
+                <ion-icon style="color:white" name="menu"></ion-icon>
+              </button>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <!-- <ion-row>
+        <ion-col col-12 col-md-6 *ngFor="let item of cupones">
+            <ion-card>
+                <img src="https://ahorroygano.com/{{item.picture}}" />
+                <div class="card-title">{{item.promocion}}</div>
+                <div class="card-subtitle">Tienda {{item.tienda}}</div>
+            </ion-card>
+
+            <ion-card-content>
+                <p>{{item.description}}</p>
+            </ion-card-content>
+
+            <ion-row>
+                <ion-col>
+                    <button ion-button icon-left clear small>
+                      <ion-icon name="ice-cream"></ion-icon>
+                      <div>{{item.points}} Puntos</div>
+                    </button>
+                </ion-col>
+                <ion-col center text-center>
+                    <ion-note>
+                        AyG
+                    </ion-note>
+                </ion-col>
+            </ion-row>
+
+        </ion-col>
+    </ion-row> -->
+
+    <h1 text-center>Tus cupones actuales</h1>
+    <ion-row class="center">
+        <ion-col>
+            <ion-item>
+                <table col-12 class="center" *ngFor="let item of cupones">
+                    <tr style="background:#0E6D78;color:#F9B247;padding-top: 0.5rem;padding-bottom: 0.5rem;">
+                        <th> codigo </th>
+                        <th style="padding-top: 0.5rem;
+                                padding-bottom: 0.5rem;">Cupon</th>
+                        <th> tienda </th>
+                        <th> estado </th>
+                        <th> puntos </th>
+                        <th> Imagen </th>
+                    </tr>
+
+                    <tr style="color:#0E6D78;padding-top: 0.5rem;padding-bottom: 0.5rem;">
+                        <td style="padding-top: 0.5rem;
+                                padding-bottom: 0.5rem;">
+                            <ion-label>{{item.id}} </ion-label>
+                        </td>
+                        <td style="padding-top: 0.5rem;
+                                padding-bottom: 0.5rem;">
+                            <ion-label>{{item.promotion}} </ion-label>
+                        </td>
+                        <td>
+                            <ion-label>{{item.store}} </ion-label>
+                        </td>
+                        <td>
+                            <ion-label>
+                                <p *ngIf="item.consolidated == 1">Activado</p>
+                                <p *ngIf="item.consolidated == 0">En spera</p>
+                            </ion-label>
+                        </td>
+                        <td>
+                            <ion-label>{{item.points}} </ion-label>
+                        </td>
+                        <td>
+                            <ion-card>
+                                <img width="20" height="20" src="https://ahorroygano.com/{{item.picture}}" />
+                                <!-- <div class="card-title">{{item.promocion}}</div>
+                                <div class="card-subtitle">Tienda {{item.tienda}}</div> -->
+                            </ion-card>
+                        </td>
+
+                    </tr>
+                </table>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col>
+            <ion-item>
+                <p *ngIf="user">Tus puntos actuales: {{ user.total }}, </p>
+                <p *ngIf="user"> puntos en espera: {{ user.reffer_points }}, para recibirlos debes realizar una compra :D</p>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

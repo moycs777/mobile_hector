@@ -1,0 +1,63 @@
+<!--
+  Generated template for the BusquedaresultadoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>busquedaresultado</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-row>
+
+    <ion-col col-md-6 *ngFor="let item of data  ">
+
+        <ion-card>
+            <ion-item>
+                <ion-avatar item-start>
+                    <img src="https://ahorroygano.com/{{item.picture}} ">
+                </ion-avatar>
+                <h2>{{item.name}}</h2>
+                <p>{{item.created_at}}</p>
+            </ion-item>
+
+            <ion-card-content>
+                <p>{{item.description}}</p>
+            </ion-card-content>
+
+            <ion-row>
+                <ion-col>
+                    <button ion-button icon-left clear small>
+        <!-- <ion-icon name="thumbs-up "></ion-icon> -->
+        <div><h3>Aprovecha la Oferta</h3>
+        <ion-label style="color:#f9b247;">Costo con oferta: {{item.price_with_offert}}</ion-label>
+        <ion-label style="color:red;text-decoration: line-through">Precio sin oferta: {{item.price_not_offert}}</ion-label></div>
+      </button>
+                </ion-col>
+                <ion-col>
+                    <button ion-button (click)="DownloadCupones(item)" icon-left clear small>
+        <!-- <ion-icon name="thumbs-up "></ion-icon> -->
+        <div>Descargar Cupon</div>
+      </button>
+                </ion-col>
+                <ion-col center text-center>
+                    <ion-note>
+                        Expira en: {{item.expires}}
+                    </ion-note>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+    </ion-col>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-row>
+
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>codigodereferido</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2 style="color:#0E6D78;font-weight:bold;">Hola! {{user.name}} para completar tu registro debes introducir el codigo de la persona que te ha referido</h2>
+    <form [formGroup]="refferForm" (ngSubmit)="completar(refferForm.value)">
+        <ion-item *ngIf="user">
+            <ion-label floating>ingresa el Código de referido</ion-label>
+            <ion-input formControlName="name" type="hidden" value="{{user.name}}"></ion-input>
+            <ion-input formControlName="email" type="hidden"  value="{{user.email}}"></ion-input>
+            <ion-input formControlName="provider_id" type="hidden" value="{{user.id}}"></ion-input>
+            <ion-input formControlName="reffer_id" type="number"></ion-input>
+            
+        </ion-item>
+        <button ion-button full color="primary" style="margin-top: 20px;" type="submit">Registrar</button>
+    </form>
+</ion-content>

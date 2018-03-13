@@ -1,0 +1,198 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons left>
+            <button ion-button menuToggle>
+      <ion-icon style="color:white" name="menu"></ion-icon>
+    </button>
+        </ion-buttons>
+        <ion-title>
+            <div class="center">
+                <img style="height:80px" src="assets/imgs/ayg_color.png">
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <!-- <ion-list>
+          <ion-item *ngFor="let item of data">
+            <p>{{ item.name }}</p>
+            <p>{{ item.position}}</p>
+          </ion-item>
+      </ion-list> -->
+
+    <ion-row>
+        <ion-col col-12>
+            <form [formGroup]="Filtroform" (ngSubmit)="LoadData(Filtroform.value)">
+                <ion-list class="padding_ion_list">
+                    <ion-item>
+                        <ion-label class="clase_ion_label color_ion_label">Categoría</ion-label>
+                        <ion-select formControlName="category" style="background:rgba(255, 255, 255, 0.5)" color="texto-verde">
+                            <ion-option *ngFor="let item of categorias" value="{{item.id}}">{{item.name}}</ion-option>
+                        </ion-select>
+                    </ion-item>
+
+                    <ion-grid>
+                        <ion-row>
+
+                            <ion-col>
+                                <ion-label class="clase_ion_label color_ion_label">¿Donde buscas?</ion-label>
+                                <ion-list formControlName="type" radio-group>
+                                    <ion-item>
+                                        <ion-label>Tienda Fisica</ion-label>
+                                        <ion-radio #tiendafisica value="1"></ion-radio>
+                                    </ion-item>
+                                    <ion-item>
+                                        <ion-label>Tienda Online</ion-label>
+                                        <ion-radio #tiendaonline value="3"></ion-radio>
+                                    </ion-item>
+                                </ion-list>
+                                <ion-item>
+                                    <button ion-button color="boton" style="margin-top: 20px;" type="submit">Buscar</button>
+                                </ion-item>
+
+                                <!-- <ion-item>
+
+                                    <ion-label>Tienda Física</ion-label>
+                                    <ion-checkbox formControlName="type" [checked]="1" #tiendafisica type="checkbox" v alue="1" (change)="1" color="checkbox-amarillo"></ion-checkbox>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-label>Tienda Online</ion-label>
+                                    <ion-checkbox formControlName="type" [checked]="3" #tiendaonline type="checkbox" value="3" (change)="3" color="checkbox-amarillo"></ion-checkbox>
+                                </ion-item>
+                                <ion-item>
+                                    <button ion-button color="boton" style="margin-top: 20px;" type="submit">Buscar</button>
+                                </ion-item>
+                              -->
+                            </ion-col>
+                            <ion-col *ngIf="tiendafisica.checked">
+                                <ion-list>
+                                    <ion-label class="clase_ion_label color_ion_label">Ubicate aquí.</ion-label>
+                                    <ion-item>
+                                        <ion-label>Por localidad</ion-label>
+                                        <ion-checkbox #localidad type="checkbox" name="size" (change)="0" color="checkbox-amarillo"></ion-checkbox>
+                                    </ion-item>
+                                    <ion-item>
+                                        <ion-label>Cerca de mi</ion-label>
+                                        <ion-checkbox #cercademi type="checkbox" name="size" (change)="0" color="checkbox-amarillo"></ion-checkbox>
+                                    </ion-item>
+                                </ion-list>
+
+
+                                <ion-list *ngIf="cercademi.checked">
+                                    <ion-col>
+                                        <ion-item>
+                                            <ion-range min="1" max="100">
+                                                <ion-icon range-left small name="navigate">1 km</ion-icon>
+                                                <ion-icon range-right name="navigate">100 km</ion-icon>
+                                            </ion-range>
+                                        </ion-item>
+
+                                    </ion-col>
+                                </ion-list>
+
+                                <ion-list *ngIf="!cercademi.checked">
+                                </ion-list>
+
+                                <ion-list *ngIf="localidad.checked">
+                                    <ion-col>
+                                        <ion-label class="clase_ion_label color_ion_label">Pais: España</ion-label>
+                                        <ion-label class="clase_ion_label color_ion_label">Estado: </ion-label>
+                                        <ion-select formControlName="city" (ionChange)="setCiudad(estado_id)" [(ngModel)]="estado_id">
+                                            <ion-option *ngFor=" let item of estados " value="{{item.id_provincia}} ">{{item.provincia}}.</ion-option>
+                                        </ion-select>
+                                    </ion-col>
+
+                                    <ion-col *ngIf="activo">
+                                        <ion-label class="clase_ion_label color_ion_label">Ciudad: </ion-label>
+                                        <ion-select formControlName="provincie">
+                                            <!-- El error es en el ngmodel = ngmodel es para meter los datos que mandaremos
+                                            de acuerdo a los parametros para omitir eso usamos un FORM con las reglas de
+                                            FORMBUILDER para hacer todas las validaciones a mi parecer de manera,
+                                            mas fácil. <ion-select [(ngModel)]="ciudades">-->
+                                            <!-- <option *ngIf='estado_id.id == 0' value="0">--Select--</option> -->
+                                            <ion-option *ngFor="let item of ciudades " value="{{item.cod_municipio}} ">{{item.nombre}}</ion-option>
+                                        </ion-select>
+                                    </ion-col>
+
+                                </ion-list>
+
+
+                                <ion-list *ngIf="!localidad.checked ">
+
+                                </ion-list>
+
+                            </ion-col>
+
+                        </ion-row>
+                    </ion-grid>
+
+
+
+                    <ion-list *ngIf="!tiendafisica.checked ">
+
+                    </ion-list>
+
+
+
+
+                </ion-list>
+            </form>
+        </ion-col>
+    </ion-row>
+
+    <!--
+    <ion-content class="contenedor" infinite-scroll (onScrollMethod)="nextLoad()">-->
+
+
+
+    <ion-row>
+        <ion-col col-md-6 *ngFor="let item of data  ">
+
+            <ion-card>
+                <ion-item>
+                    <ion-avatar item-start>
+                        <img src="https://ahorroygano.com/{{item.picture}} ">
+                    </ion-avatar>
+                    <h2>{{item.name}}</h2>
+                    <!-- <p>{{item.created_at}}</p> -->
+                </ion-item>
+
+                <ion-card-content>
+                    <p>{{item.description}}</p>
+                </ion-card-content>
+
+                <ion-row>
+                    <ion-col class="back_ion_col">
+                        <button ion-button icon-left clear small>
+                          <!-- tipos de anuncios -->
+                          <ion-label *ngIf=" item.type==1 " class="clase_tipo_anuncio">€ {{item.price_not_offert}}</ion-label>
+                          <ion-label *ngIf="item.type==1 " class="clase_item">€ {{item.price_with_offert}}</ion-label>
+                          <ion-label *ngIf="item.type==2 " class="clase_item">€ {{item.price_not_offert}}</ion-label>
+                          <ion-label *ngIf="item.type==3 " class="clase_item">€ {{item.price_not_offert}}</ion-label>
+                        </button>
+                    </ion-col>
+                    <ion-col class="back_ion_col">
+                        <button ion-button (click)="DownloadCupones(item) " icon-left clear small>
+                          <!-- <ion-icon name="thumbs-up "></ion-icon> -->
+                          <ion-label style="color:white;">Descargar Cupon</ion-label>
+                        </button>
+                    </ion-col>
+                    <ion-col class="back_ion_col" center text-center>
+                        <ion-label style="color:white;">
+                            Expira en: {{item.expires}}
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </ion-col>
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event) ">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </ion-row>
+
+
+
+
+</ion-content>
